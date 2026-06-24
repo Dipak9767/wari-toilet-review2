@@ -1,5 +1,5 @@
 
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import wariBg from "../assets/wari-bg.jpg";
 import React from "react";
@@ -23,8 +23,10 @@ const TOILETS = [
 ];
 
 export default function RatePage() {
-    const { id } = useParams();
+ const [searchParams] = useSearchParams();
 
+  const id = searchParams.get("id");
+    
     const toilet = TOILETS.find(
         (t) => t.uniqueId === id
     );
